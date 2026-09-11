@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isinglass (Horse) Collective</title>
+<style>
+  :root {
+    --pale-magenta: #fbe6f5;
+    --pale-cerulean: #e3f4fa;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--pale-magenta);
+    transition: background-color 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Courier New", Courier, monospace;
+    overflow-x: hidden;
+  }
+
+  .headline-wrap {
+    perspective: 700px;
+    margin-top: 8vh;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 6vw, 4rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.15;
+    text-align: center;
+    color: #1a1a1a;
+    transform: rotateX(28deg) rotateY(-18deg) skewX(-8deg);
+    transform-style: preserve-3d;
+    margin: 0;
+    padding: 0 1rem;
+
+    /* stacked hard-edged shadow for a chunky, angular, graffiti/early-Mac block feel */
+    text-shadow:
+      1px 1px 0 #000,
+      2px 2px 0 #000,
+      3px 3px 0 #000,
+      4px 4px 0 #000,
+      5px 5px 0 #000,
+      6px 6px 0 #000,
+      7px 7px 0 rgba(0,0,0,0.15);
+  }
+
+  h1 .paren {
+    display: inline-block;
+    transform: skewX(6deg) rotate(-2deg);
+  }
+
+  img#feature {
+    display: block;
+    margin: 2rem auto;
+    max-width: 60vw;
+    max-height: 45vh;
+    border: 3px solid #1a1a1a;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.25);
+  }
+
+  footer {
+    margin-top: auto;
+    margin-bottom: 3vh;
+    font-size: 0.95rem;
+    color: #1a1a1a;
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="headline-wrap">
+    <h1>ISINGLASS <span class="paren">(HORSE)</span><br>COLLECTIVE</h1>
+  </div>
+
+  <img id="feature" src="img.jpg" alt="Isinglass Horse Collective">
+
+  <footer>press F to change background color</footer>
+
+  <script>
+    const paleMagenta = getComputedStyle(document.documentElement).getPropertyValue('--pale-magenta').trim();
+    const paleCerulean = getComputedStyle(document.documentElement).getPropertyValue('--pale-cerulean').trim();
+    let onCerulean = false;
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'f' || e.key === 'F') {
+        onCerulean = !onCerulean;
+        document.body.style.backgroundColor = onCerulean ? paleCerulean : paleMagenta;
+      }
+    });
+  </script>
+
+</body>
+</html>
